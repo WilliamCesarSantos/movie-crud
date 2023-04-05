@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS movie(
+    id IDENTITY PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    genre VARCHAR(80) NOT NULL,
+    rating DECIMAL(4,2) NOT NULL
+);

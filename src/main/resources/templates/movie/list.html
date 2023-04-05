@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Lista de filme</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Lista de filme</div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th th:text="Titulo"/>
+                        <th th:text="Genero"/>
+                        <th th:text="Nota"/>
+                        <th th:text="Edit"/>
+                        <th th:text="Delete"/>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="movie : ${movies}">
+                        <td th:text="${movie.title}"/>
+                        <td th:text="${movie.genre}"/>
+                        <td th:text="${movie.rating}"/>
+                        <td><a th:href="@{'/app/movies/edit/' + ${movie.id}}" th:text="Edit"/></td>
+                        <td><a th:href="@{'/app/movies/delete/' + ${movie.id}}" th:text="Delete"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <a href="/app/movies/create" th:text="Cadastrar"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
