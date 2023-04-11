@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/app/movies")
-public class MovieController {
+public class MovieAppController {
 
     private MovieService service;
 
     @Autowired
-    public MovieController(
+    public MovieAppController(
             MovieService service
     ) {
         this.service = service;
