@@ -25,7 +25,7 @@ public class MovieAppController {
 
     @GetMapping
     public String get(Model model) {
-        model.addAttribute("movies", service.list());
+        model.addAttribute("movies", service.list(null));
         return "movie/list";
     }
 

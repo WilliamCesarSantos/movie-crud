@@ -75,8 +75,8 @@ public class MovieRestController {
     @GetMapping(
             produces = {MediaType.APPLICATION_JSON_VALUE}
     )
-    public List<Movie> list() {
-        return service.list();
+    public List<Movie> list(@RequestParam(name = "title", required = false) String title) {
+        return service.list(title);
     }
 
     @Operation(summary = "Find movie by id")

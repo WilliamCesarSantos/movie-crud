@@ -1,8 +1,5 @@
 package br.ada.crud.movie;
 
-import jakarta.validation.Valid;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,16 +14,18 @@ public class MovieService {
         this.repository = repository;
     }
 
-    public Page<Movie> list(Pageable pageable) {
-        return repository.findAll(pageable);
-    }
-
     public Optional<Movie> findById(Long id) {
         return repository.findById(id);
     }
 
-    public List<Movie> list() {
-        return repository.findAll();
+    public List<Movie> list(String title) {
+        List<Movie> movies = null;
+        if (title != null) {
+            movies = repository.findByTitle(title);
+        } else {
+            movies = repository.findAll();
+        }
+        return movies;
     }
 
     public Movie insert(Movie movie) {
