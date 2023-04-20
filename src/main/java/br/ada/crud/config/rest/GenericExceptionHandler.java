@@ -1,4 +1,4 @@
-package br.ada.crud.rest.config;
+package br.ada.crud.config.rest;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;

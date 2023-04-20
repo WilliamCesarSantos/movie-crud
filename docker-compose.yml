@@ -21,6 +21,14 @@ services:
       - postgres
     networks:
       - postgres-network
+  wiremock-server:
+    image: wiremock/wiremock
+    container_name: wiremock
+    volumes:
+      - ./stubs/token:/home/wiremock
+    command: "--global-response-templating --verbose"
+    ports:
+      - "8282:8080"
 
 networks:
   postgres-network:
