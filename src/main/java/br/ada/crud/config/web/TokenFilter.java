@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 
-//@Component
+@Component
 public class TokenFilter implements Filter {
 
     private static final String SECRET_KEY = "token_jwt";
